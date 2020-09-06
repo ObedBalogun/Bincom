@@ -1,6 +1,7 @@
-def fibonacci(n):
+def fibonacci():
+    seq_length = int(input('Please input the length of the fibonacci sequence you want'))
     seq = []
-    for x in range(n-1):
+    for x in range(seq_length-1):
         if not seq:
             seq.extend((x, x+1))
             continue
@@ -10,4 +11,4 @@ def fibonacci(n):
     return seq
 
 
-print(fibonacci(10))
+print(fibonacci())

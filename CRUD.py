@@ -1,6 +1,6 @@
 import psycopg2
 
-class Crud:
+class CRUD:
 #######CREATE/INSERT#######
     def create(self):
         create_db = """CREATE TABLE Album(album_id SERIAL PRIMARY KEY,
@@ -19,6 +19,7 @@ class Crud:
             album = [('Guns and Roses', 'KISS'), ('ROTD', 'Dreamville')]
             cursor.executemany(create, album)
             connection.commit()
+            print('Records',album[0],'and',album[1],'inserted into table')
         except(Exception, psycopg2.DatabaseError) as error:
             print(error)
 
@@ -34,7 +35,7 @@ class Crud:
             query = ("""SELECT author FROM Album WHERE album_name = %s""")
             cursor.execute(query, ['ROTD'])
             record = cursor.fetchone()
-            print(record)
+            print('Record',record,'has been retrieved from the database')
         except(Exception, psycopg2.DatabaseError) as error:
             print(error)
 
@@ -53,6 +54,7 @@ class Crud:
             ex = [('Guns and Roses'), ('KISS')]
             cursor.execute(query, ex)
             connection.commit()
+            print('Update Done')
 
         except(Exception, psycopg2.DatabaseError) as error:
             print(error)
@@ -75,7 +77,7 @@ class Crud:
             print(error)
 
 
-crud = Crud()
+crud = CRUD()
 crud.create()
 crud.retrieve()
 crud.update()
