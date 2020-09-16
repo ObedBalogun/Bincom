@@ -1,5 +1,5 @@
 def fibonacci():
-    seq_length = int(input('Please input the length of the fibonacci sequence you want'))
+    seq_length = int(input('Please input the number of terms you want displayed'))
     seq = []
     for x in range(seq_length-1):
         if not seq:

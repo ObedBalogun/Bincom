@@ -20,10 +20,12 @@ class CRUD:
             cursor.executemany(create, album)
             connection.commit()
             print('Records',album[0],'and',album[1],'inserted into table')
+
         except(Exception, psycopg2.DatabaseError) as error:
             print(error)
 
         #######RETRIEVE######
+
     def retrieve(self):
         try:
             connection = psycopg2.connect(user='postgres',
